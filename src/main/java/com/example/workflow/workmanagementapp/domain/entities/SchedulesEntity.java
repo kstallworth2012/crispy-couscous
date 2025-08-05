@@ -17,6 +17,14 @@ public class SchedulesEntity{
 	@Id
 	private Long _id;
 
+/*
+    ProjectEntity project_id;
+   	ActivitiesEntity activity_id;
+    LocalDate baseline_start;
+    LocalDate baseline_end;
+    LocalDate actual_start;
+    LocalDate actual_end;
+*/
 
 /*
 CREATE TABLE Schedules (

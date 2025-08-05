@@ -1,3 +1,10 @@
+package com.example.workflow.workmanagementapp.domain.entities;
+
+
+
+import com.example.workflow.workmanagementapp.domain.entities.ActivitiesEntity;
+import com.example.workflow.workmanagementapp.domain.entities.ProjectEntity;
+import com.example.workflow.workmanagementapp.domain.entities.ResourcesEntity
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.CascadeType;

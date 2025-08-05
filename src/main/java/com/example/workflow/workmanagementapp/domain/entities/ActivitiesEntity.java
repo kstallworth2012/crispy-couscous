@@ -1,6 +1,7 @@
 package com.example.workflow.workmanagementapp.domain.entities;
 
 
+import com.example.workflow.workmanagementapp.domain.entities.ProjectEntity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -27,6 +28,16 @@ import java.time.LocalDate;
 public class ActivitiesEntity{
 	@Id
 	private Long _id;
+
+    /*
+    project_id INT,
+    activity_name VARCHAR(255),
+    start_date DATE,
+    end_date DATE,
+    status VARCHAR(50),
+    total_float INT,
+    percent_complete VARCHAR(10),
+    */
 
 /*
 CREATE TABLE Activities (
