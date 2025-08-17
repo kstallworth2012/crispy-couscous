@@ -1,6 +1,16 @@
+package com.example.workflow.workmanagementapp.domain.entities;
+
+
+import com.example.workflow.workmanagementapp.domain.entities.ActivitiesEntity;
+import com.example.workflow.workmanagementapp.domain.entities.ProjectEntity;
+
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Table;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,19 +22,20 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "Schedules")
+@Table(name = "schedules")
 public class SchedulesEntity{
 	@Id
 	private Long _id;
 
-/*
-    ProjectEntity project_id;
-   	ActivitiesEntity activity_id;
-    LocalDate baseline_start;
-    LocalDate baseline_end;
-    LocalDate actual_start;
-    LocalDate actual_end;
-*/
+    @JoinColumn
+    private ProjectsEntity project_id;
+   	@JoinColumn
+    private ActivitiesEntity activity_id;
+    private LocalDate baseline_start;
+    private LocalDate basesline_end;
+    private LocalDate actual_start;
+    private LocalDate actual_end;
+
 
 /*
 CREATE TABLE Schedules (

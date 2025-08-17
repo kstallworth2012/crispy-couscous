@@ -1,7 +1,7 @@
 package com.example.workflow.workmanagementapp.domain.entities;
 
 
-import com.example.workflow.workmanagementapp.domain.entities.ProjectEntity;
+import com.example.workflow.workmanagementapp.domain.entities.ProjectsEntity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -10,6 +10,8 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.CascadeType;
@@ -29,15 +31,16 @@ public class ActivitiesEntity{
 	@Id
 	private Long _id;
 
-    /*
-    project_id INT,
-    activity_name VARCHAR(255),
-    start_date DATE,
-    end_date DATE,
-    status VARCHAR(50),
-    total_float INT,
-    percent_complete VARCHAR(10),
-    */
+    @ManyToOne
+    @JoinColumn(name = "project_id")
+    private ProjectsEntity project_id;
+    private String activity_name; 
+    private LocalDate start_date;
+    private LocalDate end_date;
+    private String status;
+    private Integer total_float;
+    private Double percent_complete;
+    
 
 /*
 CREATE TABLE Activities (

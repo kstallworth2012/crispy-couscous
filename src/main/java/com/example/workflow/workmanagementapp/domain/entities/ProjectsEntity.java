@@ -19,6 +19,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
@@ -29,6 +30,13 @@ import java.time.LocalDate;
 public class ProjectsEntity{
 	@Id
 	private Long _id;
+	
+	private Long project_id;
+	private String project_name;
+	private String project_manager;
+	private LocalDateTime start_date;
+	private LocalDateTime end_date; 
+	private String status;
 	/*
 		CREATE TABLE Projects (
     project_id INT PRIMARY KEY,

@@ -3,11 +3,14 @@ package com.example.workflow.workmanagementapp.domain.entities;
 
 
 import com.example.workflow.workmanagementapp.domain.entities.ActivitiesEntity;
-import com.example.workflow.workmanagementapp.domain.entities.ProjectEntity;
-import com.example.workflow.workmanagementapp.domain.entities.ResourcesEntity
+import com.example.workflow.workmanagementapp.domain.entities.ProjectsEntity;
+import com.example.workflow.workmanagementapp.domain.entities.ResourcesEntity;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,7 +25,17 @@ import java.time.LocalDate;
 @Table(name = "Assignments")
 public class AssignmentsEntity{
 	@Id
-	private Long _id;
+	private Long assignment_id;
+	
+//    @JoinColumn
+    private ProjectsEntity project_id;
+    
+//    @JoinColumn
+    private ActivitiesEntity activity_id;
+    
+//    @JoinColumn
+    private ResourcesEntity resource_id;
+    private String role;
 
 /*
 

@@ -25,8 +25,11 @@ import java.time.LocalDate;
 @Table(name = "Resources")
 public class ResourcesEntity{
 	@Id
-	private Long _id;
-
+	private Long resource_id;
+	private String resource_name;
+	private String resource_type; 
+	private String availability; 
+	private Double cost_per_day; 
 
 /*
 CREATE TABLE Resources (
