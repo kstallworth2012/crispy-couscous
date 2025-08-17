@@ -2,7 +2,7 @@ package com.example.workflow.workmanagementapp.domain.entities;
 
 
 import com.example.workflow.workmanagementapp.domain.entities.ActivitiesEntity;
-import com.example.workflow.workmanagementapp.domain.entities.ProjectEntity;
+import com.example.workflow.workmanagementapp.domain.entities.ProjectsEntity;
 
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
@@ -25,11 +25,11 @@ import java.time.LocalDate;
 @Table(name = "schedules")
 public class SchedulesEntity{
 	@Id
-	private Long _id;
+	private Long schedule_id;
 
-    @JoinColumn
+    @JoinColumn(name = "project_id")
     private ProjectsEntity project_id;
-   	@JoinColumn
+   	@JoinColumn(name = "activity_id")
     private ActivitiesEntity activity_id;
     private LocalDate baseline_start;
     private LocalDate basesline_end;

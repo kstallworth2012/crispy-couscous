@@ -8,6 +8,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.CascadeType;
@@ -25,7 +26,12 @@ import java.time.LocalDate;
 @Table(name = "Teams")
 public class TeamsEntity{
 	@Id
-	private Long _id;
+	private Long team_id;
+    private String team_name;
+    private String team_lead; 
+    @ManyToOne
+    @JoinColumn(name = "project_id")
+    private ProjectsEntity project_id; 
 
 /*
 

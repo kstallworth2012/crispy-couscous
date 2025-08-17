@@ -28,9 +28,9 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "Projects")
 public class ProjectsEntity{
-	@Id
-	private Long _id;
 	
+	
+	@Id
 	private Long project_id;
 	private String project_name;
 	private String project_manager;

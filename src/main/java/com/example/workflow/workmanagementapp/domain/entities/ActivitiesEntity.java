@@ -29,7 +29,7 @@ import java.time.LocalDate;
 @Table(name = "activities")
 public class ActivitiesEntity{
 	@Id
-	private Long _id;
+	private Long activity_id;
 
     @ManyToOne
     @JoinColumn(name = "project_id")
