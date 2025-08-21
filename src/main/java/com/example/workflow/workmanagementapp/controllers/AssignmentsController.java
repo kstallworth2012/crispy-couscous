@@ -50,7 +50,7 @@ public class AssignmentsController {
 	    	 }).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	     }
 	     
-	     @PostMapping(path = "/new-carrier")
+	     @PostMapping(path = "/new-assignment")
 	     public ResponseEntity<AssignmentsDTO> createAssignment(@RequestBody AssignmentsDTO _assignmentsDTO){
 	          
 	     			AssignmentsEntity assignmentEntity = assignmentMapper.mapFrom(_assignmentsDTO);

@@ -17,8 +17,7 @@ import com.example.workflow.workmanagementapp.domain.dto.ProjectsDTO;
 import com.example.workflow.workmanagementapp.domain.entities.ProjectsEntity;
 import com.example.workflow.workmanagementapp.mappers.Mapper;
 import com.example.workflow.workmanagementapp.services.ProjectService;
-import com.health.benefits.HealthBenefitsApplication.domain.dto.CarrierDTO;
-import com.health.benefits.HealthBenefitsApplication.domain.entities.CarrierEntity;
+
 
 @RestController
 @RequestMapping("/api/projects")
@@ -26,7 +25,7 @@ public class ProjectsController {
 	
 	
 	private	ProjectService projectService;
-	private Mapper<ProjectsEntity,ProjectsDTO>   projectMapper;
+	private Mapper<ProjectsEntity,ProjectsDTO> projectMapper;
 	
 	
 	public ProjectsController(ProjectService projectService, Mapper<ProjectsEntity, ProjectsDTO> projectMapper) {
@@ -36,32 +35,31 @@ public class ProjectsController {
 	
 	
 	
-	/*
-	 * 	     @GetMapping(path = "/")
-	     public List<CarrierDTO> listCarriers(){
-	    	 List<CarrierEntity> carriers = carrierService.findAll();
-	    	 return carriers.stream().map(carrierMapper::mapTo).collect(Collectors.toList());
+ 	 
+	  	 @GetMapping(path = "/")
+	     public List<ProjectsDTO> listProjects(){
+	    	 List<ProjectsEntity> projects = projectService.findAll();
+	    	 return projects.stream().map(projectMapper::mapTo).collect(Collectors.toList());
 	    			 }
 	     
-	     @GetMapping(path = "/{carrier_id}")
-	     public ResponseEntity<CarrierDTO> getCarrier(@PathVariable("carrier_id") Long id){
-	    	 Optional<CarrierEntity> foundCarrier = carrierService.findOne(id);
-	    	 return foundCarrier.map(carrierEntity ->{
-	    		 CarrierDTO carrierDTO = carrierMapper.mapTo(carrierEntity);
-	    		 return new ResponseEntity<>(carrierDTO, HttpStatus.OK);
+	     @GetMapping(path = "/{project_id}")
+	     public ResponseEntity<ProjectsDTO> getProject(@PathVariable("project_id") Long id){
+	    	 Optional<ProjectsEntity> foundProject = projectService.findOne(id);
+	    	 return foundProject.map(projectEntity ->{
+	    		 ProjectsDTO projectDTO = projectMapper.mapTo(projectEntity);
+	    		 return new ResponseEntity<>(projectDTO, HttpStatus.OK);
 	    	 
 	    	 }).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	     }
 	     
-	     @PostMapping(path = "/new-carrier")
-	     public ResponseEntity<CarrierDTO> createCarrier(@RequestBody CarrierDTO _carrierDTO){
+	     @PostMapping(path = "/new-project")
+	     public ResponseEntity<ProjectsDTO> createProject(@RequestBody ProjectsDTO _projectDTO){
 	          
-	     			CarrierEntity carrierEntity = carrierMapper.mapFrom(_carrierDTO);
-	     	     	CarrierEntity savedCarrierEntity = carrierService.createCarrier(carrierEntity);
-	     	     	return new ResponseEntity<>(carrierMapper.mapTo(savedCarrierEntity), HttpStatus.CREATED);
+	     			ProjectsEntity projectEntity = projectMapper.mapFrom(_projectDTO);
+	     	     	ProjectsEntity savedProjectEntity = projectService.createProject(projectEntity);
+	     	     	return new ResponseEntity<>(projectMapper.mapTo(savedProjectEntity), HttpStatus.CREATED);
 	     }
-	 * 
-	 */
+	
 	
 	
 	

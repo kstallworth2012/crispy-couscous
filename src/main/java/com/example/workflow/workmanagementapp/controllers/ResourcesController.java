@@ -17,8 +17,7 @@ import com.example.workflow.workmanagementapp.domain.dto.ResourcesDTO;
 import com.example.workflow.workmanagementapp.domain.entities.ResourcesEntity;
 import com.example.workflow.workmanagementapp.mappers.Mapper;
 import com.example.workflow.workmanagementapp.services.ResourceService;
-import com.health.benefits.HealthBenefitsApplication.domain.dto.CarrierDTO;
-import com.health.benefits.HealthBenefitsApplication.domain.entities.CarrierEntity;
+
 
 @RestController
 @RequestMapping("/api/resources")
@@ -36,30 +35,30 @@ public class ResourcesController {
 	}
 	
 	
-	/*
+	
 	     @GetMapping(path = "/")
-	     public List<CarrierDTO> listCarriers(){
-	    	 List<CarrierEntity> carriers = carrierService.findAll();
-	    	 return carriers.stream().map(carrierMapper::mapTo).collect(Collectors.toList());
+	     public List<ResourcesDTO> listResources(){
+	    	 List<ResourcesEntity> resources = resourceService.findAll();
+	    	 return resources.stream().map(resourceMapper::mapTo).collect(Collectors.toList());
 	    			 }
 	     
-	     @GetMapping(path = "/{carrier_id}")
-	     public ResponseEntity<CarrierDTO> getCarrier(@PathVariable("carrier_id") Long id){
-	    	 Optional<CarrierEntity> foundCarrier = carrierService.findOne(id);
-	    	 return foundCarrier.map(carrierEntity ->{
-	    		 CarrierDTO carrierDTO = carrierMapper.mapTo(carrierEntity);
-	    		 return new ResponseEntity<>(carrierDTO, HttpStatus.OK);
+	     @GetMapping(path = "/{resource_id}")
+	     public ResponseEntity<ResourcesDTO> getResource(@PathVariable("resource_id") Long id){
+	    	 Optional<ResourcesEntity> foundResource = resourceService.findOne(id);
+	    	 return foundResource.map(resourceEntity ->{
+	    		 ResourcesDTO resourceDTO = resourceMapper.mapTo(resourceEntity);
+	    		 return new ResponseEntity<>(resourceDTO, HttpStatus.OK);
 	    	 
 	    	 }).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	     }
 	     
-	     @PostMapping(path = "/new-carrier")
-	     public ResponseEntity<CarrierDTO> createCarrier(@RequestBody CarrierDTO _carrierDTO){
+	     @PostMapping(path = "/new-resource")
+	     public ResponseEntity<ResourcesDTO> createResource(@RequestBody ResourcesDTO _resourceDTO){
 	          
-	     			CarrierEntity carrierEntity = carrierMapper.mapFrom(_carrierDTO);
-	     	     	CarrierEntity savedCarrierEntity = carrierService.createCarrier(carrierEntity);
-	     	     	return new ResponseEntity<>(carrierMapper.mapTo(savedCarrierEntity), HttpStatus.CREATED);
+	     			ResourcesEntity resourceEntity = resourceMapper.mapFrom(_resourceDTO);
+	     	     	ResourcesEntity savedResourceEntity = resourceService.createResource(resourceEntity);
+	     	     	return new ResponseEntity<>(resourceMapper.mapTo(savedResourceEntity), HttpStatus.CREATED);
 	     }
-	 */
+	 
 
 }
