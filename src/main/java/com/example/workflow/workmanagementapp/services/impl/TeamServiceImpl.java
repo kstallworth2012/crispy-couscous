@@ -4,10 +4,20 @@ import java.util.List;
 import java.util.Optional;
 
 import com.example.workflow.workmanagementapp.domain.entities.TeamsEntity;
+import com.example.workflow.workmanagementapp.repositories.TeamsRepository;
 import com.example.workflow.workmanagementapp.services.TeamService;
 
 public class TeamServiceImpl implements TeamService {
 
+	
+
+
+	private TeamsRepository teamsRepository;
+	
+	public TeamServiceImpl(TeamsRepository _teamsRepository) {
+		this.teamsRepository = _teamsRepository;
+	}
+	
 	@Override
 	public TeamsEntity createTeam(TeamsEntity _team) {
 		// TODO Auto-generated method stub

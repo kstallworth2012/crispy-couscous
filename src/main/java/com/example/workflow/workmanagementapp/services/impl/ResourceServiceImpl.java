@@ -3,10 +3,22 @@ package com.example.workflow.workmanagementapp.services.impl;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Service;
+
 import com.example.workflow.workmanagementapp.domain.entities.ResourcesEntity;
+import com.example.workflow.workmanagementapp.repositories.ResourcesRepository;
 import com.example.workflow.workmanagementapp.services.ResourceService;
 
+@Service
 public class ResourceServiceImpl implements ResourceService {
+
+	private ResourcesRepository resourcesRepository;
+	
+	
+	
+	public ResourceServiceImpl(ResourcesRepository resourcesRepository) {
+		this.resourcesRepository = resourcesRepository;
+	}
 
 	@Override
 	public ResourcesEntity createResource(ResourcesEntity _resource) {

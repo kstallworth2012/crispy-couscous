@@ -3,10 +3,23 @@ package com.example.workflow.workmanagementapp.services.impl;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Service;
+
 import com.example.workflow.workmanagementapp.domain.entities.AssignmentsEntity;
+import com.example.workflow.workmanagementapp.repositories.AssignmentsRepository;
 import com.example.workflow.workmanagementapp.services.AssignmentsService;
 
+@Service
 public class AssignmentServiceImpl implements AssignmentsService {
+
+	
+	private AssignmentsRepository assignmentsRepository;
+	
+	
+	
+	public AssignmentServiceImpl(AssignmentsRepository assignmentsRepository) {
+		this.assignmentsRepository = assignmentsRepository;
+	}
 
 	@Override
 	public AssignmentsEntity createAssignments(AssignmentsEntity _assignments) {
