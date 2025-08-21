@@ -6,8 +6,7 @@ import org.springframework.stereotype.Component;
 import com.example.workflow.workmanagementapp.domain.dto.ActivitiesDTO;
 import com.example.workflow.workmanagementapp.domain.entities.ActivitiesEntity;
 import com.example.workflow.workmanagementapp.mappers.Mapper;
-import com.health.benefits.HealthBenefitsApplication.domain.dto.CarrierDTO;
-import com.health.benefits.HealthBenefitsApplication.domain.entities.CarrierEntity;
+
 
 
 @Component
