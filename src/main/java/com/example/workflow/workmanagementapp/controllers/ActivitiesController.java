@@ -1,5 +1,15 @@
 package com.example.workflow.workmanagementapp.controllers;
 
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,6 +32,30 @@ public class ActivitiesController {
 	}
 	
 	
+	 	 @GetMapping(path = "/")
+	     public List<ActivitiesDTO> listActivities(){
+	    	 List<ActivitiesEntity> activities = activitiesService.findAll();
+	    	 return activities.stream().map(activitiesMapper::mapTo).collect(Collectors.toList());
+	    			 }
+	     
+	     @GetMapping(path = "/{activity_id}")
+	     public ResponseEntity<ActivitiesDTO> getActivity(@PathVariable("activity_id") Long id){
+	    	 Optional<ActivitiesEntity> foundActivity = activitiesService.findOne(id);
+	    	 return foundActivity.map(ActivitiesEntity ->{
+	    		 ActivitiesDTO activitiesDTO = activitiesMapper.mapTo(ActivitiesEntity);
+	    		 return new ResponseEntity<>(activitiesDTO, HttpStatus.OK);
+	    	 
+	    	 }).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	     }
+	     
+	     @PostMapping(path = "/new-activity")
+	     public ResponseEntity<ActivitiesDTO> createActivity(@RequestBody ActivitiesDTO _activitiesDTO){
+	          
+	     			ActivitiesEntity activityEntity = activitiesMapper.mapFrom(_activitiesDTO);
+	     	     	ActivitiesEntity savedActivityEntity = activitiesService.createActivity(activityEntity);
+	     	     	return new ResponseEntity<>(activitiesMapper.mapTo(savedActivityEntity), HttpStatus.CREATED);
+	     }
+	 
 	
 	
 	
