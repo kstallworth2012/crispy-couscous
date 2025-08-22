@@ -2,6 +2,8 @@ package com.example.workflow.workmanagementapp.services.impl;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 import com.example.workflow.workmanagementapp.domain.entities.TeamsEntity;
 import com.example.workflow.workmanagementapp.repositories.TeamsRepository;
@@ -21,7 +23,7 @@ public class TeamServiceImpl implements TeamService {
 	@Override
 	public TeamsEntity createTeam(TeamsEntity _team) {
 		// TODO Auto-generated method stub
-		return null;
+		return teamsRepository.save(_team);
 	}
 
 	@Override
@@ -33,19 +35,19 @@ public class TeamServiceImpl implements TeamService {
 	@Override
 	public List<TeamsEntity> findAll() {
 		// TODO Auto-generated method stub
-		return null;
+		return StreamSupport.stream(teamsRepository.findAll().spliterator(),false).collect(Collectors.toList());
 	}
 
 	@Override
 	public Optional<TeamsEntity> findOne(Long id) {
 		// TODO Auto-generated method stub
-		return Optional.empty();
+		return teamsRepository.findById(id);
 	}
 
 	@Override
 	public boolean isExists(Long id) {
 		// TODO Auto-generated method stub
-		return false;
+		return teamsRepository.existsById(id);
 	}
 
 }

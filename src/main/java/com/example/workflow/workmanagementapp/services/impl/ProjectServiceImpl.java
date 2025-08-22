@@ -2,6 +2,8 @@ package com.example.workflow.workmanagementapp.services.impl;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 import org.springframework.stereotype.Service;
 
@@ -23,7 +25,7 @@ public class ProjectServiceImpl implements ProjectService {
 	@Override
 	public ProjectsEntity createProject(ProjectsEntity _project) {
 		// TODO Auto-generated method stub
-		return null;
+		return projectsRepository.save(_project);
 	}
 
 	@Override
@@ -35,19 +37,19 @@ public class ProjectServiceImpl implements ProjectService {
 	@Override
 	public List<ProjectsEntity> findAll() {
 		// TODO Auto-generated method stub
-		return null;
+		return StreamSupport.stream(projectsRepository.findAll().spliterator(),false).collect(Collectors.toList());
 	}
 
 	@Override
 	public Optional<ProjectsEntity> findOne(Long id) {
 		// TODO Auto-generated method stub
-		return Optional.empty();
+		return projectsRepository.findById(id);
 	}
 
 	@Override
 	public boolean isExists(Long id) {
 		// TODO Auto-generated method stub
-		return false;
+		return projectsRepository.existsById(id);
 	}
 
 }
