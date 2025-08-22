@@ -17,8 +17,7 @@ import com.example.workflow.workmanagementapp.domain.dto.TeamsDTO;
 import com.example.workflow.workmanagementapp.domain.entities.TeamsEntity;
 import com.example.workflow.workmanagementapp.mappers.Mapper;
 import com.example.workflow.workmanagementapp.services.TeamService;
-import com.health.benefits.HealthBenefitsApplication.domain.dto.CarrierDTO;
-import com.health.benefits.HealthBenefitsApplication.domain.entities.CarrierEntity;
+
 
 @RestController
 @RequestMapping("/api/teams")
@@ -35,31 +34,31 @@ public class TeamsController {
 		this.teamMapper = teamMapper;
 	}
 	
-	/*
+	
 	     @GetMapping(path = "/")
-	     public List<CarrierDTO> listCarriers(){
-	    	 List<CarrierEntity> carriers = carrierService.findAll();
-	    	 return carriers.stream().map(carrierMapper::mapTo).collect(Collectors.toList());
+	     public List<TeamsDTO> listTeams(){
+	    	 List<TeamsEntity> teams = teamService.findAll();
+	    	 return teams.stream().map(teamMapper::mapTo).collect(Collectors.toList());
 	    			 }
 	     
-	     @GetMapping(path = "/{carrier_id}")
-	     public ResponseEntity<CarrierDTO> getCarrier(@PathVariable("carrier_id") Long id){
-	    	 Optional<CarrierEntity> foundCarrier = carrierService.findOne(id);
-	    	 return foundCarrier.map(carrierEntity ->{
-	    		 CarrierDTO carrierDTO = carrierMapper.mapTo(carrierEntity);
-	    		 return new ResponseEntity<>(carrierDTO, HttpStatus.OK);
+	     @GetMapping(path = "/{team_id}")
+	     public ResponseEntity<TeamsDTO> getTeam(@PathVariable("team_id") Long id){
+	    	 Optional<TeamsEntity> foundTeam = teamService.findOne(id);
+	    	 return foundTeam.map(teamEntity ->{
+	    		 TeamsDTO teamDTO = teamMapper.mapTo(teamEntity);
+	    		 return new ResponseEntity<>(teamDTO, HttpStatus.OK);
 	    	 
 	    	 }).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	     }
 	     
-	     @PostMapping(path = "/new-carrier")
-	     public ResponseEntity<CarrierDTO> createCarrier(@RequestBody CarrierDTO _carrierDTO){
+	     @PostMapping(path = "/new-team")
+	     public ResponseEntity<TeamsDTO> createTeam(@RequestBody TeamsDTO _teamDTO){
 	          
-	     			CarrierEntity carrierEntity = carrierMapper.mapFrom(_carrierDTO);
-	     	     	CarrierEntity savedCarrierEntity = carrierService.createCarrier(carrierEntity);
-	     	     	return new ResponseEntity<>(carrierMapper.mapTo(savedCarrierEntity), HttpStatus.CREATED);
+	     			TeamsEntity teamEntity = teamMapper.mapFrom(_teamDTO);
+	     	     	TeamsEntity savedTeamEntity = teamService.createTeam(teamEntity);
+	     	     	return new ResponseEntity<>(teamMapper.mapTo(savedTeamEntity), HttpStatus.CREATED);
 	     }
-	 */
+	 
 	
 
 }

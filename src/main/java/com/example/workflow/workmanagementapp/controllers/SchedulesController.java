@@ -17,8 +17,7 @@ import com.example.workflow.workmanagementapp.domain.dto.SchedulesDTO;
 import com.example.workflow.workmanagementapp.domain.entities.SchedulesEntity;
 import com.example.workflow.workmanagementapp.mappers.Mapper;
 import com.example.workflow.workmanagementapp.services.ScheduleService;
-import com.health.benefits.HealthBenefitsApplication.domain.dto.CarrierDTO;
-import com.health.benefits.HealthBenefitsApplication.domain.entities.CarrierEntity;
+
 
 @RestController
 @RequestMapping("/api/schedules")
@@ -36,31 +35,31 @@ public class SchedulesController {
 	}
 	
 	
-	/*
+
 	     @GetMapping(path = "/")
-	     public List<CarrierDTO> listCarriers(){
-	    	 List<CarrierEntity> carriers = carrierService.findAll();
-	    	 return carriers.stream().map(carrierMapper::mapTo).collect(Collectors.toList());
+	     public List<SchedulesDTO> listSchedules(){
+	    	 List<SchedulesEntity> schedules = _scheduleService.findAll();
+	    	 return schedules.stream().map(scheduleMapper::mapTo).collect(Collectors.toList());
 	    			 }
 	     
-	     @GetMapping(path = "/{carrier_id}")
-	     public ResponseEntity<CarrierDTO> getCarrier(@PathVariable("carrier_id") Long id){
-	    	 Optional<CarrierEntity> foundCarrier = carrierService.findOne(id);
-	    	 return foundCarrier.map(carrierEntity ->{
-	    		 CarrierDTO carrierDTO = carrierMapper.mapTo(carrierEntity);
-	    		 return new ResponseEntity<>(carrierDTO, HttpStatus.OK);
+	     @GetMapping(path = "/{schedule_id}")
+	     public ResponseEntity<SchedulesDTO> getSchedule(@PathVariable("schedule_id") Long id){
+	    	 Optional<SchedulesEntity> foundSchedule = _scheduleService.findOne(id);
+	    	 return foundSchedule.map(schedulesEntity ->{
+	    		 SchedulesDTO scheduleDTO = scheduleMapper.mapTo(schedulesEntity);
+	    		 return new ResponseEntity<>(scheduleDTO, HttpStatus.OK);
 	    	 
 	    	 }).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	     }
 	     
-	     @PostMapping(path = "/new-carrier")
-	     public ResponseEntity<CarrierDTO> createCarrier(@RequestBody CarrierDTO _carrierDTO){
+	     @PostMapping(path = "/new-schedule")
+	     public ResponseEntity<SchedulesDTO> createSchedule(@RequestBody SchedulesDTO _scheduleDTO){
 	          
-	     			CarrierEntity carrierEntity = carrierMapper.mapFrom(_carrierDTO);
-	     	     	CarrierEntity savedCarrierEntity = carrierService.createCarrier(carrierEntity);
-	     	     	return new ResponseEntity<>(carrierMapper.mapTo(savedCarrierEntity), HttpStatus.CREATED);
+	     			SchedulesEntity scheduleEntity = scheduleMapper.mapFrom(_scheduleDTO);
+	     	     	SchedulesEntity savedScheduleEntity = _scheduleService.createSchedule(scheduleEntity);
+	     	     	return new ResponseEntity<>(scheduleMapper.mapTo(savedScheduleEntity), HttpStatus.CREATED);
 	     }
-	 */
+	 
 	
 
 }
