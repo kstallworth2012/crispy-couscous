@@ -7,6 +7,8 @@ import com.example.workflow.workmanagementapp.domain.entities.ProjectsEntity;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.CascadeType;
@@ -27,8 +29,10 @@ public class SchedulesEntity{
 	@Id
 	private Long schedule_id;
 
+	@ManyToOne
     @JoinColumn(name = "project_id")
     private ProjectsEntity project_id;
+    @ManyToOne
    	@JoinColumn(name = "activity_id")
     private ActivitiesEntity activity_id;
     private LocalDate baseline_start;

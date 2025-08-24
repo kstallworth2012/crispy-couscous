@@ -5,10 +5,13 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
+import org.springframework.stereotype.Service;
+
 import com.example.workflow.workmanagementapp.domain.entities.TeamsEntity;
 import com.example.workflow.workmanagementapp.repositories.TeamsRepository;
 import com.example.workflow.workmanagementapp.services.TeamService;
 
+@Service
 public class TeamServiceImpl implements TeamService {
 
 	

@@ -28,12 +28,16 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "activities")
 public class ActivitiesEntity{
+	
+	
+	
 	@Id
 	private Long activity_id;
 
     @ManyToOne
     @JoinColumn(name = "project_id")
     private ProjectsEntity project_id;
+    
     private String activity_name; 
     private LocalDate start_date;
     private LocalDate end_date;

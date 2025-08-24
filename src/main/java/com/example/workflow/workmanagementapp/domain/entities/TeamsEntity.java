@@ -29,6 +29,7 @@ public class TeamsEntity{
 	private Long team_id;
     private String team_name;
     private String team_lead; 
+    
     @ManyToOne
     @JoinColumn(name = "project_id")
     private ProjectsEntity project_id; 
