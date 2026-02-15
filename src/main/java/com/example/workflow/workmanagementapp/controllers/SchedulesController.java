@@ -4,8 +4,11 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -52,6 +55,19 @@ public class SchedulesController {
 	    	 }).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	     }
 	     
+	     
+	     	//PAGEABLE
+	@GetMapping(path="/")
+	public Page<SchedulesDTO> listSchedules(Pageable page){
+		Page<SchedulesEntity> schedules = _scheduleService.findAll(page);
+		return schedules.map(scheduleMapper::mapTo);
+	}
+	   
+	     
+	     
+	     
+	     
+	     
 	     @PostMapping(path = "/new-schedule")
 	     public ResponseEntity<SchedulesDTO> createSchedule(@RequestBody SchedulesDTO _scheduleDTO){
 	          
@@ -60,6 +76,17 @@ public class SchedulesController {
 	     	     	return new ResponseEntity<>(scheduleMapper.mapTo(savedScheduleEntity), HttpStatus.CREATED);
 	     }
 	 
+	     
+	     
+	 
+	     	@DeleteMapping(path="/{id}")
+	public ResponseEntity<SchedulesDTO> deleteSchedule(@PathVariable("id") String id) {
+		
+		_scheduleService.delete(id);
+		
+		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+	}
+       
 	
 
 }

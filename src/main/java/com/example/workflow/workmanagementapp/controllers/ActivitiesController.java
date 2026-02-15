@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -48,6 +50,22 @@ public class ActivitiesController {
 	    	 }).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	     }
 	     
+	     
+	     
+	     	//PAGEABLE
+	@GetMapping(path="/")
+	public Page<ActivitiesDTO> listActivities(Pageable page){
+		Page<ActivitiesEntity> activities = activitiesService.findAll(page);
+		return activities.map(activitiesMapper::mapTo);
+	}
+	   
+	     
+	     
+	     
+	     
+	     
+	     
+	     
 	     @PostMapping(path = "/new-activity")
 	     public ResponseEntity<ActivitiesDTO> createActivity(@RequestBody ActivitiesDTO _activitiesDTO){
 	          
@@ -57,6 +75,18 @@ public class ActivitiesController {
 	     }
 	 
 	
+	     
+	     
+	     /*
+	 
+	     	@DeleteMapping(path="/{id}")
+	public ResponseEntity<ApplicantDto> deleteApplicant(@PathVariable("id") String id) {
+		
+		appService.delete(id);
+		
+		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+	}
+       */
 	
 	
 }

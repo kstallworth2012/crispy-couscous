@@ -4,8 +4,11 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -52,6 +55,29 @@ public class ResourcesController {
 	    	 }).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	     }
 	     
+	     
+	     
+	     
+	     	//PAGEABLE
+	@GetMapping(path="/")
+	public Page<ResourcesDTO> listResources(Pageable page){
+		Page<ResourcesEntity> resources = resourceService.findAll(page);
+		return resources.map(resourceMapper::mapTo);
+	}
+	   
+	     
+	     
+	     
+	     
+	     
+	     
+	     
+	     
+	     
+	     
+	     
+	     
+	     
 	     @PostMapping(path = "/new-resource")
 	     public ResponseEntity<ResourcesDTO> createResource(@RequestBody ResourcesDTO _resourceDTO){
 	          
@@ -60,5 +86,25 @@ public class ResourcesController {
 	     	     	return new ResponseEntity<>(resourceMapper.mapTo(savedResourceEntity), HttpStatus.CREATED);
 	     }
 	 
-
+	     
+	     
+	 
+	@DeleteMapping(path="/{id}")
+	public ResponseEntity<ResourcesDTO> deleteResource(@PathVariable("id") String id) {
+		
+		resourceService.delete(id);
+		
+		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+	}
+       
+	     
+	     
+	     
+	     
+	     
+	     
+	     
+	     
+	     
+	     
 }
