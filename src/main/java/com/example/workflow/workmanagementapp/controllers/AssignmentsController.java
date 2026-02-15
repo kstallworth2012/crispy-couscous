@@ -10,8 +10,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -83,12 +85,47 @@ public class AssignmentsController {
 	     
 	     
 	     
+	 
+	     
+	     	
+	@PutMapping(path="/{id}")
+	public ResponseEntity<AssignmentsDTO> fullUpdateAssignment(@PathVariable("id") String id, @RequestBody AssignmentsDTO appDto){
+		
+		if(!assignmentService.isExists(id)) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			
+		}
+		
+		appDto.setId(id);
+		AssignmentsEntity applicantEntity = assignmentMapper.mapFrom(appDto);
+		AssignmentsEntity savedApplicantEntity = assignmentService.save(applicantEntity);
+		
+		return new ResponseEntity<>(assignmentMapper.mapTo(savedApplicantEntity), HttpStatus.OK); 
+		
+	}	
+	
+	
+	
+	@PatchMapping(path ="{/id}")
+	public ResponseEntity<AssignmentsDTO> partialUpdate(@PathVariable("id") String id, @RequestBody AssignmentsDTO appDto){
+		
+		if(!assignmentService.isExists(id)) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			
+		}
+		
+		AssignmentsEntity assignmentsEntity = assignmentMapper.mapFrom(appDto);
+		AssignmentsEntity updatedAssignmentsEntity = assignmentService.partialUpdate(id, assignmentsEntity);
+		
+		return new ResponseEntity<>(assignmentMapper.mapTo(updatedAssignmentsEntity), HttpStatus.OK);
+		
+		
+		
+	}
+	
 	     
 	     
-	     
-	     
-	     
-	    
+	
 	 
 	@DeleteMapping(path="/{id}")
 	public ResponseEntity<AssignmentsDTO> deleteAssignment(@PathVariable("id") String id) {
