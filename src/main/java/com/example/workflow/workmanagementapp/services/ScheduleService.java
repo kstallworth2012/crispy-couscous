@@ -2,6 +2,10 @@ package com.example.workflow.workmanagementapp.services;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import com.example.workflow.workmanagementapp.domain.entities.SchedulesEntity;
 
@@ -10,10 +14,12 @@ public interface ScheduleService {
 	
 	SchedulesEntity createSchedule(SchedulesEntity _schedule);
 	SchedulesEntity createScheduleUpdate(SchedulesEntity _schedule);
-	 List<SchedulesEntity> findAll();
-	 
-	 Optional<SchedulesEntity> findOne(Long id);
+	List<SchedulesEntity> findAll();
+	Page<SchedulesEntity> findAll(Pageable pageable); 
+	Optional<SchedulesEntity> findOne(Long id);
 	 
 	 boolean isExists(Long id);
+	 SchedulesEntity partialUpdate(UUID _id, SchedulesEntity _schedules);
+	 void delete(UUID id);
 
 }

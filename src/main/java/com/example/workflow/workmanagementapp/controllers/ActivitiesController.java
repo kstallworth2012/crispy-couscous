@@ -30,6 +30,8 @@ public class ActivitiesController {
 	
 	private ActivitiesService activitiesService;
 	private Mapper<ActivitiesEntity,ActivitiesDTO> activitiesMapper;
+	
+	
 	public ActivitiesController(ActivitiesService activitiesService,
 			Mapper<ActivitiesEntity, ActivitiesDTO> activitiesMapper) {
 		this.activitiesService = activitiesService;
