@@ -29,7 +29,6 @@ import java.util.UUID;
 public class SchedulesEntity{
 	@Id
 	private UUID schedule_id;
-
 	@ManyToOne
     @JoinColumn(name = "project_id")
     private ProjectsEntity project_id;
@@ -41,6 +40,18 @@ public class SchedulesEntity{
     private LocalDate actual_start;
     private LocalDate actual_end;
 
+	public UUID getSchedule_id() {
+		return schedule_id;
+	}
+	public void setSchedule_id(UUID schedule_id) {
+		this.schedule_id = schedule_id;
+	}
+	public ProjectsEntity getProject_id() {
+		return project_id;
+	}
+	public void setProject_id(ProjectsEntity project_id) {
+		this.project_id = project_id;
+	}
 
 /*
 CREATE TABLE Schedules (

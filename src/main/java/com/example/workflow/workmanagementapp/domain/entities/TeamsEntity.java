@@ -28,12 +28,31 @@ import java.util.UUID;
 public class TeamsEntity{
 	@Id
 	private UUID team_id;
-    private String team_name;
+
+
+	private String team_name;
     private String team_lead; 
     
     @ManyToOne
     @JoinColumn(name = "project_id")
     private ProjectsEntity project_id; 
+    
+    
+    public String getTeam_name() {
+		return team_name;
+	}
+
+	public void setTeam_name(String team_name) {
+		this.team_name = team_name;
+	}
+
+	public ProjectsEntity getProject_id() {
+		return project_id;
+	}
+
+	public void setProject_id(ProjectsEntity project_id) {
+		this.project_id = project_id;
+	}
 
 /*
 

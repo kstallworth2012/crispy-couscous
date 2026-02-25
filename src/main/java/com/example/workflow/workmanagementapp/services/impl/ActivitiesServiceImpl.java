@@ -67,10 +67,12 @@ public class ActivitiesServiceImpl implements ActivitiesService {
 	@Override
 	public ActivitiesEntity partialUpdate(UUID _id, ActivitiesEntity _activity) {
 		// TODO Auto-generated method stub
-		_activity.setId(_id);
+		
+		
+		_activity.setActivity_id(_id);
 		
 	       return activitiesRepository.findById(_id).map(existingActivity -> {
-	            Optional.ofNullable(_activity.getTitle()).ifPresent(existingActivity::setTitle);
+	            Optional.ofNullable(_activity.getActivity_name()).ifPresent(existingActivity::setActivity_name);
 	            return activitiesRepository.save(existingActivity);
 	        }).orElseThrow(() -> new RuntimeException("Activity does not exist"));
 	}
@@ -79,6 +81,12 @@ public class ActivitiesServiceImpl implements ActivitiesService {
 	public void delete(UUID _id) {
 		// TODO Auto-generated method stub
 		activitiesRepository.deleteById(_id);
+	}
+
+	@Override
+	public ActivitiesEntity save(ActivitiesEntity activityEntity) {
+		// TODO Auto-generated method stub
+		return activitiesRepository.save(activityEntity);
 	}
 
 }

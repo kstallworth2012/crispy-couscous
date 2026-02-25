@@ -128,7 +128,7 @@ public class TeamsController {
 	     
 	 
 	@DeleteMapping(path="/{id}")
-	public ResponseEntity<TeamsDTO> deleteTeam(@PathVariable("id") String id) {
+	public ResponseEntity<TeamsDTO> deleteTeam(@PathVariable("id") UUID id) {
 		
 		teamService.delete(id);
 		

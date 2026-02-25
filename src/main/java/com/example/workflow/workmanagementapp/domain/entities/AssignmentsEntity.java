@@ -30,6 +30,7 @@ public class AssignmentsEntity{
 	@Id
 	private UUID assignment_id;
 	
+
 	@ManyToOne
     @JoinColumn(name = "project_id")
     private ProjectsEntity project_id;
@@ -43,6 +44,24 @@ public class AssignmentsEntity{
     private ResourcesEntity resource_id;
     private String role;
 
+    
+	public UUID getAssignment_id() {
+		return assignment_id;
+	}
+	public void setAssignment_id(UUID assignment_id) {
+		this.assignment_id = assignment_id;
+	}
+	public ActivitiesEntity getActivity_id() {
+		return activity_id;
+	}
+	public void setActivity_id(ActivitiesEntity activity_id) {
+		this.activity_id = activity_id;
+	} 
+    
+    
+    
+    
+    
 /*
 
 CREATE TABLE Assignments (

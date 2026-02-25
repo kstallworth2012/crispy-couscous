@@ -38,6 +38,29 @@ public class ProjectsEntity{
 	private LocalDateTime start_date;
 	private LocalDateTime end_date; 
 	private String status;
+	
+	
+	
+	
+	
+	public UUID getProject_id() {
+		return project_id;
+	}
+	public void setProject_id(UUID project_id) {
+		this.project_id = project_id;
+	}
+	public String getProject_name() {
+		return project_name;
+	}
+	public void setProject_name(String project_name) {
+		this.project_name = project_name;
+	}
+	
+	
+	
+	
+	
+	
 	/*
 		CREATE TABLE Projects (
     project_id INT PRIMARY KEY,

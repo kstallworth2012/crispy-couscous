@@ -19,5 +19,6 @@ public interface ActivitiesService {
 	boolean isExists(UUID id);
 	ActivitiesEntity partialUpdate(UUID _id, ActivitiesEntity _activity);
 	void delete(UUID _id);
+	ActivitiesEntity save(ActivitiesEntity activityEntity);
 	
 }

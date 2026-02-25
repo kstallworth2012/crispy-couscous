@@ -35,17 +35,38 @@ public class ActivitiesEntity{
 	@Id
 	private UUID activity_id;
 
-    @ManyToOne
+
+	@ManyToOne
     @JoinColumn(name = "project_id")
     private ProjectsEntity project_id;
     
-    private String activity_name; 
+
+	private String activity_name; 
     private LocalDate start_date;
     private LocalDate end_date;
     private String status;
     private Integer total_float;
     private Double percent_complete;
     
+    
+    
+    public String getActivity_name() {
+		return activity_name;
+	}
+	public void setActivity_name(String activity_name) {
+		this.activity_name = activity_name;
+	}
+    
+    
+    
+    
+    
+    public UUID getActivity_id() {
+		return activity_id;
+	}
+	public void setActivity_id(UUID activity_id) {
+		this.activity_id = activity_id;
+	}
 
 /*
 CREATE TABLE Activities (
