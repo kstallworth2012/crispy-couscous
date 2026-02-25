@@ -44,6 +44,24 @@ public class ResourcesEntity{
 	public void setResource_name(String resource_name) {
 		this.resource_name = resource_name;
 	}
+	public String getResource_type() {
+		return resource_type;
+	}
+	public void setResource_type(String resource_type) {
+		this.resource_type = resource_type;
+	}
+	public String getAvailability() {
+		return availability;
+	}
+	public void setAvailability(String availability) {
+		this.availability = availability;
+	}
+	public Double getCost_per_day() {
+		return cost_per_day;
+	}
+	public void setCost_per_day(Double cost_per_day) {
+		this.cost_per_day = cost_per_day;
+	}
 	
 	
 	
