@@ -8,7 +8,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -17,6 +19,7 @@ import org.springframework.test.web.servlet.RequestBuilder;
 
 import com.example.workflow.workmanagementapp.domain.dto.ResourcesDTO;
 import com.example.workflow.workmanagementapp.domain.entities.ResourcesEntity;
+import com.example.workflow.workmanagementapp.services.ResourceService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @WebMvcTest(controllers = ResourcesController.class)
@@ -25,6 +28,10 @@ public class ResourceControllerWebLayerTest {
 
 	@Autowired
 	private MockMvc mockMvc; 
+	
+	@MockitoBean //instead ofMockBean
+	ResourceService resourceService;
+	
 	
 	@Test
     @DisplayName("Create Resource")
