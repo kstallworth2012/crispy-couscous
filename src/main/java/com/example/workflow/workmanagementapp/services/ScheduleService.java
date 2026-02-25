@@ -21,5 +21,6 @@ public interface ScheduleService {
 	 boolean isExists(UUID id);
 	 SchedulesEntity partialUpdate(UUID _id, SchedulesEntity _schedules);
 	 void delete(UUID id);
+	SchedulesEntity save(SchedulesEntity schedulesEntity);
 
 }

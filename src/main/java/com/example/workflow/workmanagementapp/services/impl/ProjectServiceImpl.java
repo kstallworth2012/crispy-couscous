@@ -77,4 +77,10 @@ public class ProjectServiceImpl implements ProjectService {
 		projectsRepository.deleteById(_id);
 	}
 
+	@Override
+	public ProjectsEntity save(ProjectsEntity projectEntity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

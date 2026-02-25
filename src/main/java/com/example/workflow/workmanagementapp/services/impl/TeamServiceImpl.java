@@ -65,7 +65,7 @@ public class TeamServiceImpl implements TeamService {
 	@Override
 	public TeamsEntity partialUpdate(UUID _id, TeamsEntity _team) {
 		// TODO Auto-generated method stub
-		_team.setId(_id);
+		//_team.
 	       return teamsRepository.findById(_id).map(existingTeam -> {
 	            Optional.ofNullable(_team.getTitle()).ifPresent(existingTeam::setTitle);
 	            return teamsRepository.save(existingTeam);
@@ -76,6 +76,12 @@ public class TeamServiceImpl implements TeamService {
 	public void delete(UUID _id) {
 		// TODO Auto-generated method stub
 		teamsRepository.deleteById(_id);
+	}
+
+	@Override
+	public TeamsEntity save(TeamsEntity teamEntity) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

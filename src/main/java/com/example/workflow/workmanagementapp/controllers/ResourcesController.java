@@ -71,7 +71,7 @@ public class ResourcesController {
 			
 		}
 		
-		appDto.setId(id);
+		appDto.setResource_id(id);
 		ResourcesEntity resourceEntity = resourceMapper.mapFrom(appDto);
 		ResourcesEntity savedResourceEntity = resourceService.save(resourceEntity);
 		
@@ -132,7 +132,7 @@ public class ResourcesController {
 	     
 	 
 	@DeleteMapping(path="/{id}")
-	public ResponseEntity<ResourcesDTO> deleteResource(@PathVariable("id") String id) {
+	public ResponseEntity<ResourcesDTO> deleteResource(@PathVariable("id") UUID id) {
 		
 		resourceService.delete(id);
 		

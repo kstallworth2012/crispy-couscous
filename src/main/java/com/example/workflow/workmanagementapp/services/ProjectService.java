@@ -21,5 +21,6 @@ public interface ProjectService {
 	 boolean isExists(UUID id);
 	 ProjectsEntity partialUpdate(UUID _id, ProjectsEntity _project);
 	 void delete(UUID _id);
+	ProjectsEntity save(ProjectsEntity projectEntity);
 	 
 }

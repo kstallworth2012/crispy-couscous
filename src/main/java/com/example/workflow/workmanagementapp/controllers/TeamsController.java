@@ -92,7 +92,7 @@ public class TeamsController {
 			
 		}
 		
-		_teamDTO.setId(id);
+		_teamDTO.setTeam_id(id);
 		TeamsEntity teamEntity = teamMapper.mapFrom(_teamDTO);
 		TeamsEntity savedTeamEntity = teamService.save(teamEntity);
 		

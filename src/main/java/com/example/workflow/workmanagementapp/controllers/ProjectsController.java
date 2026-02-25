@@ -94,7 +94,7 @@ public class ProjectsController {
 			
 		}
 		
-		_projectDTO.setId(id);
+		_projectDTO.set_id(id);
 		ProjectsEntity projectEntity = projectMapper.mapFrom(_projectDTO);
 		ProjectsEntity savedProjectEntity = projectService.save(projectEntity);
 		
@@ -137,7 +137,7 @@ public class ProjectsController {
 	     
 	 
 	@DeleteMapping(path="/{id}")
-	public ResponseEntity<ProjectsDTO> deleteProject(@PathVariable("id") String id) {
+	public ResponseEntity<ProjectsDTO> deleteProject(@PathVariable("id") UUID id) {
 		
 		projectService.delete(id);
 		

@@ -23,5 +23,6 @@ public interface AssignmentsService {
 	AssignmentsEntity partialUpdate(UUID _id, AssignmentsEntity _assignments);
 	
 	void delete(UUID _id);
+	AssignmentsEntity save(AssignmentsEntity applicantEntity);
 	 
 }

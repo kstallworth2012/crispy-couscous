@@ -65,9 +65,9 @@ public class AssignmentServiceImpl implements AssignmentsService {
 	@Override
 	public AssignmentsEntity partialUpdate(UUID _id, AssignmentsEntity _assignments) {
 		// TODO Auto-generated method stub
-		_assignments.setId(_id);
+		_assignments.setAssignment_id(_id);
 	       return assignmentsRepository.findById(_id).map(existingAssignment -> {
-	            Optional.ofNullable(_assignments.getTitle()).ifPresent(existingAssignment::setTitle);
+	            Optional.ofNullable(_assignments.getActivity_id()).ifPresent(existingAssignment::setActivity_id);
 	            return assignmentsRepository.save(existingAssignment);
 	        }).orElseThrow(() -> new RuntimeException("Assignment does not exist"));
 	}
@@ -76,6 +76,12 @@ public class AssignmentServiceImpl implements AssignmentsService {
 	public void delete(UUID _id) {
 		// TODO Auto-generated method stub
 		assignmentsRepository.deleteById(_id);
+	}
+
+	@Override
+	public AssignmentsEntity save(AssignmentsEntity applicantEntity) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

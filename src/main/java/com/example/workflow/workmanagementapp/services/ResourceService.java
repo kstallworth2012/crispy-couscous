@@ -21,4 +21,6 @@ public interface ResourceService {
 	boolean isExists(UUID id);
 	ResourcesEntity partialEntity(UUID _id, ResourcesEntity _resource);
 	void delete(UUID _id);
+	ResourcesEntity partialUpdate(UUID id, ResourcesEntity resourceEntity);
+	ResourcesEntity save(ResourcesEntity resourceEntity);
 }

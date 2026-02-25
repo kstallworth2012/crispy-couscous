@@ -78,4 +78,10 @@ public class ScheduleServiceImpl implements ScheduleService {
 		schedulesRepository.deleteById(id);
 	}
 
+	@Override
+	public SchedulesEntity save(SchedulesEntity schedulesEntity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

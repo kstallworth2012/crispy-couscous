@@ -1,5 +1,7 @@
 package com.example.workflow.workmanagementapp.domain.dto;
 
+import java.util.UUID;
+
 import com.example.workflow.workmanagementapp.domain.entities.ActivitiesEntity;
 import com.example.workflow.workmanagementapp.domain.entities.ProjectsEntity;
 import com.example.workflow.workmanagementapp.domain.entities.ResourcesEntity;
@@ -20,9 +22,17 @@ public class AssignmentsDTO {
 
 	
 	
-	private Long assignment_id;
+	private UUID assignment_id;
     private ProjectsEntity project_id;
     private ActivitiesEntity activity_id;
     private ResourcesEntity resource_id;
     private String role;
+	public UUID getAssignment_id() {
+		return assignment_id;
+	}
+	public void setAssignment_id(UUID assignment_id) {
+		this.assignment_id = assignment_id;
+	}
+    
+    
 }

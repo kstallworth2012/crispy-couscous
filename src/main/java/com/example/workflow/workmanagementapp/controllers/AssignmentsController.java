@@ -97,7 +97,7 @@ public class AssignmentsController {
 			
 		}
 		
-		appDto.setId(id);
+		appDto.setAssignment_id(id);
 		AssignmentsEntity applicantEntity = assignmentMapper.mapFrom(appDto);
 		AssignmentsEntity savedApplicantEntity = assignmentService.save(applicantEntity);
 		

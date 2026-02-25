@@ -91,7 +91,7 @@ public class SchedulesController {
 			
 		}
 		
-		_scheduleDTO.setId(id);
+		_scheduleDTO.set_id(id);
 		SchedulesEntity schedulesEntity = scheduleMapper.mapFrom(_scheduleDTO);
 		SchedulesEntity savedScheduleEntity = _scheduleService.save(schedulesEntity);
 		
@@ -137,7 +137,7 @@ public class SchedulesController {
 	     
 	 
 	     	@DeleteMapping(path="/{id}")
-	public ResponseEntity<SchedulesDTO> deleteSchedule(@PathVariable("id") String id) {
+	public ResponseEntity<SchedulesDTO> deleteSchedule(@PathVariable("id") UUID id) {
 		
 		_scheduleService.delete(id);
 		

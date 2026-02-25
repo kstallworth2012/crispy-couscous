@@ -20,4 +20,5 @@ public interface TeamService {
 	boolean isExists(UUID id);
 	TeamsEntity partialUpdate(UUID _id, TeamsEntity _team);
 	void delete(UUID _id);
+	TeamsEntity save(TeamsEntity teamEntity);
 }

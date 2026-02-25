@@ -79,4 +79,16 @@ public class ResourceServiceImpl implements ResourceService {
 		return null;
 	}
 
+	@Override
+	public ResourcesEntity partialUpdate(UUID id, ResourcesEntity resourceEntity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResourcesEntity save(ResourcesEntity resourceEntity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
