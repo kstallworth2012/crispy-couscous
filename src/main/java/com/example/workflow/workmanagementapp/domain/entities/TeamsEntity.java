@@ -17,6 +17,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
@@ -26,7 +27,7 @@ import java.time.LocalDate;
 @Table(name = "Teams")
 public class TeamsEntity{
 	@Id
-	private Long team_id;
+	private UUID team_id;
     private String team_name;
     private String team_lead; 
     

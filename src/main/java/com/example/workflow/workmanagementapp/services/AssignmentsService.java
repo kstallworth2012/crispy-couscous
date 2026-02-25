@@ -16,9 +16,9 @@ public interface AssignmentsService {
 	AssignmentsEntity createAssignmentsUpdate(AssignmentsEntity _assignments);
 	List<AssignmentsEntity> findAll();
     Page<AssignmentsEntity>findAll(Pageable pageable);
-	Optional<AssignmentsEntity> findOne(Long id);
+	Optional<AssignmentsEntity> findOne(UUID id);
 	 
-	boolean isExists(Long id);
+	boolean isExists(UUID id);
 	
 	AssignmentsEntity partialUpdate(UUID _id, AssignmentsEntity _assignments);
 	

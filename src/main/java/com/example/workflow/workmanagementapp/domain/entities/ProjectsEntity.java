@@ -20,6 +20,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
@@ -31,7 +32,7 @@ public class ProjectsEntity{
 	
 	
 	@Id
-	private Long project_id;
+	private UUID project_id;
 	private String project_name;
 	private String project_manager;
 	private LocalDateTime start_date;

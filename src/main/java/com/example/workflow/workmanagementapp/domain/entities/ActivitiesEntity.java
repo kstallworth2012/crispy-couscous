@@ -20,6 +20,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
@@ -32,7 +33,7 @@ public class ActivitiesEntity{
 	
 	
 	@Id
-	private Long activity_id;
+	private UUID activity_id;
 
     @ManyToOne
     @JoinColumn(name = "project_id")

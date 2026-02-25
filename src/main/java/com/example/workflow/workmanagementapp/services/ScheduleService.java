@@ -16,9 +16,9 @@ public interface ScheduleService {
 	SchedulesEntity createScheduleUpdate(SchedulesEntity _schedule);
 	List<SchedulesEntity> findAll();
 	Page<SchedulesEntity> findAll(Pageable pageable); 
-	Optional<SchedulesEntity> findOne(Long id);
+	Optional<SchedulesEntity> findOne(UUID id);
 	 
-	 boolean isExists(Long id);
+	 boolean isExists(UUID id);
 	 SchedulesEntity partialUpdate(UUID _id, SchedulesEntity _schedules);
 	 void delete(UUID id);
 

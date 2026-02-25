@@ -18,7 +18,7 @@ public interface ResourceService {
 	Page<ResourcesEntity>  findAll(Pageable pageable);
 	Optional<ResourcesEntity> findOne(UUID id);
 	 
-	boolean isExists(Long id);
+	boolean isExists(UUID id);
 	ResourcesEntity partialEntity(UUID _id, ResourcesEntity _resource);
 	void delete(UUID _id);
 }

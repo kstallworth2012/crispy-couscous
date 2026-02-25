@@ -2,9 +2,12 @@ package com.example.workflow.workmanagementapp.services.impl;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.example.workflow.workmanagementapp.domain.entities.AssignmentsEntity;
@@ -42,15 +45,37 @@ public class AssignmentServiceImpl implements AssignmentsService {
 	}
 
 	@Override
-	public Optional<AssignmentsEntity> findOne(Long id) {
+	public Optional<AssignmentsEntity> findOne(UUID id) {
 		// TODO Auto-generated method stub
 		return assignmentsRepository.findById(id);
 	}
 
 	@Override
-	public boolean isExists(Long id) {
+	public boolean isExists(UUID id) {
 		// TODO Auto-generated method stub
 		return assignmentsRepository.existsById(id);
+	}
+
+	@Override
+	public Page<AssignmentsEntity> findAll(Pageable pageable) {
+		// TODO Auto-generated method stub
+		return assignmentsRepository.findAll(pageable);
+	}
+
+	@Override
+	public AssignmentsEntity partialUpdate(UUID _id, AssignmentsEntity _assignments) {
+		// TODO Auto-generated method stub
+		_assignments.setId(_id);
+	       return assignmentsRepository.findById(_id).map(existingAssignment -> {
+	            Optional.ofNullable(_assignments.getTitle()).ifPresent(existingAssignment::setTitle);
+	            return assignmentsRepository.save(existingAssignment);
+	        }).orElseThrow(() -> new RuntimeException("Assignment does not exist"));
+	}
+
+	@Override
+	public void delete(UUID _id) {
+		// TODO Auto-generated method stub
+		assignmentsRepository.deleteById(_id);
 	}
 
 }

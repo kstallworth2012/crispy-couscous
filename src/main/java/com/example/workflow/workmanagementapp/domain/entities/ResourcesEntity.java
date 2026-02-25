@@ -16,6 +16,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
@@ -25,7 +26,7 @@ import java.time.LocalDate;
 @Table(name = "Resources")
 public class ResourcesEntity{
 	@Id
-	private Long resource_id;
+	private UUID resource_id;
 	private String resource_name;
 	private String resource_type; 
 	private String availability; 

@@ -18,6 +18,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
@@ -27,7 +28,7 @@ import java.time.LocalDate;
 @Table(name = "Assignments")
 public class AssignmentsEntity{
 	@Id
-	private Long assignment_id;
+	private UUID assignment_id;
 	
 	@ManyToOne
     @JoinColumn(name = "project_id")

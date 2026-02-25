@@ -2,9 +2,12 @@ package com.example.workflow.workmanagementapp.services.impl;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.example.workflow.workmanagementapp.domain.entities.ActivitiesEntity;
@@ -34,7 +37,7 @@ public class ActivitiesServiceImpl implements ActivitiesService {
 	@Override
 	public ActivitiesEntity createActivityUpdate(ActivitiesEntity _activity) {
 		// TODO Auto-generated method stub
-		return null;
+		return activitiesRepository.save(_activity);
 	}
 
 	@Override
@@ -44,15 +47,38 @@ public class ActivitiesServiceImpl implements ActivitiesService {
 	}
 
 	@Override
-	public Optional<ActivitiesEntity> findOne(Long id) {
+	public Optional<ActivitiesEntity> findOne(UUID id) {
 		// TODO Auto-generated method stub
 		return activitiesRepository.findById(id);
 	}
 
 	@Override
-	public boolean isExists(Long id) {
+	public boolean isExists(UUID id) {
 		// TODO Auto-generated method stub
 		return activitiesRepository.existsById(id);
+	}
+
+	@Override
+	public Page<ActivitiesEntity> findAll(Pageable pageable) {
+		// TODO Auto-generated method stub
+		return activitiesRepository.findAll(pageable);
+	}
+
+	@Override
+	public ActivitiesEntity partialUpdate(UUID _id, ActivitiesEntity _activity) {
+		// TODO Auto-generated method stub
+		_activity.setId(_id);
+		
+	       return activitiesRepository.findById(_id).map(existingActivity -> {
+	            Optional.ofNullable(_activity.getTitle()).ifPresent(existingActivity::setTitle);
+	            return activitiesRepository.save(existingActivity);
+	        }).orElseThrow(() -> new RuntimeException("Activity does not exist"));
+	}
+
+	@Override
+	public void delete(UUID _id) {
+		// TODO Auto-generated method stub
+		activitiesRepository.deleteById(_id);
 	}
 
 }

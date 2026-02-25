@@ -18,7 +18,7 @@ public interface ProjectService {
 	 Page<ProjectsEntity> findAll(Pageable pageable);
 	 Optional<ProjectsEntity> findOne(UUID id);
 	 
-	 boolean isExists(Long id);
+	 boolean isExists(UUID id);
 	 ProjectsEntity partialUpdate(UUID _id, ProjectsEntity _project);
 	 void delete(UUID _id);
 	 

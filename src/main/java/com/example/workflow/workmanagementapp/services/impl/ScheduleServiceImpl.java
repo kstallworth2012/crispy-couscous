@@ -2,9 +2,12 @@ package com.example.workflow.workmanagementapp.services.impl;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.example.workflow.workmanagementapp.domain.entities.SchedulesEntity;
@@ -41,15 +44,38 @@ public class ScheduleServiceImpl implements ScheduleService {
 	}
 
 	@Override
-	public Optional<SchedulesEntity> findOne(Long id) {
+	public Optional<SchedulesEntity> findOne(UUID id) {
 		// TODO Auto-generated method stub
 		return schedulesRepository.findById(id);
 	}
 
 	@Override
-	public boolean isExists(Long id) {
+	public boolean isExists(UUID id) {
 		// TODO Auto-generated method stub
 		return schedulesRepository.existsById(id);
+	}
+
+	@Override
+	public Page<SchedulesEntity> findAll(Pageable pageable) {
+		// TODO Auto-generated method stub
+		return schedulesRepository.findAll(pageable);
+	}
+
+	@Override
+	public SchedulesEntity partialUpdate(UUID _id, SchedulesEntity _schedules) {
+		// TODO Auto-generated method stub
+			_schedules.setId(_id);
+		
+	       return schedulesRepository.findById(_id).map(existingSchedules -> {
+	            Optional.ofNullable(_schedules.getTitle()).ifPresent(existingSchedules::setTitle);
+	            return schedulesRepository.save(existingSchedules);
+	        }).orElseThrow(() -> new RuntimeException("Schedule does not exist"));
+	}
+
+	@Override
+	public void delete(UUID id) {
+		// TODO Auto-generated method stub
+		schedulesRepository.deleteById(id);
 	}
 
 }
