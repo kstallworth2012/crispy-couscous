@@ -2,6 +2,7 @@ package com.example.workflow.workmanagementapp.controllers;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 import org.springframework.data.domain.Page;
@@ -46,7 +47,7 @@ public class AssignmentsController {
 	    			 }
 	     
 	     @GetMapping(path = "/{assignment_id}")
-	     public ResponseEntity<AssignmentsDTO> getAssignments(@PathVariable("assignment_id") Long id){
+	     public ResponseEntity<AssignmentsDTO> getAssignments(@PathVariable("assignment_id") UUID id){
 	    	 Optional<AssignmentsEntity> foundAssignments = assignmentService.findOne(id);
 	    	 return foundAssignments.map(assignmentEntity ->{
 	    		 AssignmentsDTO assignmentDTO = assignmentMapper.mapTo(assignmentEntity);
@@ -89,7 +90,7 @@ public class AssignmentsController {
 	     
 	     	
 	@PutMapping(path="/{id}")
-	public ResponseEntity<AssignmentsDTO> fullUpdateAssignment(@PathVariable("id") String id, @RequestBody AssignmentsDTO appDto){
+	public ResponseEntity<AssignmentsDTO> fullUpdateAssignment(@PathVariable("id") UUID id, @RequestBody AssignmentsDTO appDto){
 		
 		if(!assignmentService.isExists(id)) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -107,7 +108,7 @@ public class AssignmentsController {
 	
 	
 	@PatchMapping(path ="{/id}")
-	public ResponseEntity<AssignmentsDTO> partialUpdate(@PathVariable("id") String id, @RequestBody AssignmentsDTO appDto){
+	public ResponseEntity<AssignmentsDTO> partialUpdate(@PathVariable("id") UUID id, @RequestBody AssignmentsDTO appDto){
 		
 		if(!assignmentService.isExists(id)) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -128,7 +129,7 @@ public class AssignmentsController {
 	
 	 
 	@DeleteMapping(path="/{id}")
-	public ResponseEntity<AssignmentsDTO> deleteAssignment(@PathVariable("id") String id) {
+	public ResponseEntity<AssignmentsDTO> deleteAssignment(@PathVariable("id") UUID id) {
 		
 		assignmentService.delete(id);
 		

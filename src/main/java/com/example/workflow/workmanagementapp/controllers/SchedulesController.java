@@ -2,6 +2,7 @@ package com.example.workflow.workmanagementapp.controllers;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 import org.springframework.data.domain.Page;
@@ -48,7 +49,7 @@ public class SchedulesController {
 	    			 }
 	     
 	     @GetMapping(path = "/{schedule_id}")
-	     public ResponseEntity<SchedulesDTO> getSchedule(@PathVariable("schedule_id") Long id){
+	     public ResponseEntity<SchedulesDTO> getSchedule(@PathVariable("schedule_id") UUID id){
 	    	 Optional<SchedulesEntity> foundSchedule = _scheduleService.findOne(id);
 	    	 return foundSchedule.map(schedulesEntity ->{
 	    		 SchedulesDTO scheduleDTO = scheduleMapper.mapTo(schedulesEntity);
@@ -83,7 +84,7 @@ public class SchedulesController {
 	     
 	     	
 	@PutMapping(path="/{id}")
-	public ResponseEntity<SchedulesDTO> fullUpdateSchedule(@PathVariable("id") String id, @RequestBody SchedulesDTO _scheduleDTO){
+	public ResponseEntity<SchedulesDTO> fullUpdateSchedule(@PathVariable("id") UUID id, @RequestBody SchedulesDTO _scheduleDTO){
 		
 		if(!_scheduleService.isExists(id)) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -101,7 +102,7 @@ public class SchedulesController {
 	
 	
 	@PatchMapping(path ="{/id}")
-	public ResponseEntity<SchedulesDTO> partialUpdate(@PathVariable("id") String id, @RequestBody SchedulesDTO _scheduleDTO){
+	public ResponseEntity<SchedulesDTO> partialUpdate(@PathVariable("id") UUID id, @RequestBody SchedulesDTO _scheduleDTO){
 		
 		if(!_scheduleService.isExists(id)) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);

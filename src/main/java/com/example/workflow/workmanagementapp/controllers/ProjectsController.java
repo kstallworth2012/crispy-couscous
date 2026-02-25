@@ -2,6 +2,7 @@ package com.example.workflow.workmanagementapp.controllers;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 import org.springframework.data.domain.Page;
@@ -48,7 +49,7 @@ public class ProjectsController {
 	    			 }
 	     
 	     @GetMapping(path = "/{project_id}")
-	     public ResponseEntity<ProjectsDTO> getProject(@PathVariable("project_id") Long id){
+	     public ResponseEntity<ProjectsDTO> getProject(@PathVariable("project_id") UUID id){
 	    	 Optional<ProjectsEntity> foundProject = projectService.findOne(id);
 	    	 return foundProject.map(projectEntity ->{
 	    		 ProjectsDTO projectDTO = projectMapper.mapTo(projectEntity);
@@ -86,7 +87,7 @@ public class ProjectsController {
 	     
 	     	
 	@PutMapping(path="/{id}")
-	public ResponseEntity<ProjectsDTO> fullUpdateProject(@PathVariable("id") String id, @RequestBody ProjectsDTO _projectDTO){
+	public ResponseEntity<ProjectsDTO> fullUpdateProject(@PathVariable("id") UUID id, @RequestBody ProjectsDTO _projectDTO){
 		
 		if(!projectService.isExists(id)) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -104,7 +105,7 @@ public class ProjectsController {
 	
 	
 	@PatchMapping(path ="{/id}")
-	public ResponseEntity<ProjectsDTO> partialUpdate(@PathVariable("id") String id, @RequestBody ProjectsDTO _projectDTO){
+	public ResponseEntity<ProjectsDTO> partialUpdate(@PathVariable("id") UUID id, @RequestBody ProjectsDTO _projectDTO){
 		
 		if(!projectService.isExists(id)) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);

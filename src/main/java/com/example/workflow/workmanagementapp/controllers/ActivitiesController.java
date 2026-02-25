@@ -2,6 +2,7 @@ package com.example.workflow.workmanagementapp.controllers;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 import org.springframework.data.domain.Page;
@@ -46,7 +47,7 @@ public class ActivitiesController {
 	    			 }
 	     
 	     @GetMapping(path = "/{activity_id}")
-	     public ResponseEntity<ActivitiesDTO> getActivity(@PathVariable("activity_id") Long id){
+	     public ResponseEntity<ActivitiesDTO> getActivity(@PathVariable("activity_id") UUID id){
 	    	 Optional<ActivitiesEntity> foundActivity = activitiesService.findOne(id);
 	    	 return foundActivity.map(ActivitiesEntity ->{
 	    		 ActivitiesDTO activitiesDTO = activitiesMapper.mapTo(ActivitiesEntity);
@@ -84,7 +85,7 @@ public class ActivitiesController {
 	     
 	     	
 	@PutMapping(path="/{id}")
-	public ResponseEntity<ActivitiesDTO> fullUpdateActivities(@PathVariable("id") String id, @RequestBody ActivitiesDTO activitiesDto){
+	public ResponseEntity<ActivitiesDTO> fullUpdateActivities(@PathVariable("id") UUID id, @RequestBody ActivitiesDTO activitiesDto){
 		
 		if(!activitiesService.isExists(id)) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -102,7 +103,7 @@ public class ActivitiesController {
 	
 	
 	@PatchMapping(path ="{/id}")
-	public ResponseEntity<ActivitiesDTO> partialUpdate(@PathVariable("id") String id, @RequestBody ActivitiesDTO appDto){
+	public ResponseEntity<ActivitiesDTO> partialUpdate(@PathVariable("id") UUID id, @RequestBody ActivitiesDTO appDto){
 		
 		if(!activitiesService.isExists(id)) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -131,7 +132,7 @@ public class ActivitiesController {
 	  
 	 
 	@DeleteMapping(path="/{id}")
-	public ResponseEntity<ActivitiesDTO> deleteActivities(@PathVariable("id") String id) {
+	public ResponseEntity<ActivitiesDTO> deleteActivities(@PathVariable("id") UUID id) {
 		
 		activitiesService.delete(id);
 		

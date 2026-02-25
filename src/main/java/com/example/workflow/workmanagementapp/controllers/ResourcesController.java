@@ -2,6 +2,7 @@ package com.example.workflow.workmanagementapp.controllers;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 import org.springframework.data.domain.Page;
@@ -48,7 +49,7 @@ public class ResourcesController {
 	    			 }
 	     
 	     @GetMapping(path = "/{resource_id}")
-	     public ResponseEntity<ResourcesDTO> getResource(@PathVariable("resource_id") Long id){
+	     public ResponseEntity<ResourcesDTO> getResource(@PathVariable("resource_id") UUID id){
 	    	 Optional<ResourcesEntity> foundResource = resourceService.findOne(id);
 	    	 return foundResource.map(resourceEntity ->{
 	    		 ResourcesDTO resourceDTO = resourceMapper.mapTo(resourceEntity);
@@ -63,7 +64,7 @@ public class ResourcesController {
 	     
 	     	
 	@PutMapping(path="/{id}")
-	public ResponseEntity<ResourcesDTO> fullUpdateResource(@PathVariable("id") String id, @RequestBody ResourcesDTO appDto){
+	public ResponseEntity<ResourcesDTO> fullUpdateResource(@PathVariable("id") UUID id, @RequestBody ResourcesDTO appDto){
 		
 		if(!resourceService.isExists(id)) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -81,7 +82,7 @@ public class ResourcesController {
 	
 	
 	@PatchMapping(path ="{/id}")
-	public ResponseEntity<ResourcesDTO> partialUpdate(@PathVariable("id") String id, @RequestBody ResourcesDTO appDto){
+	public ResponseEntity<ResourcesDTO> partialUpdate(@PathVariable("id") UUID id, @RequestBody ResourcesDTO appDto){
 		
 		if(!resourceService.isExists(id)) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
