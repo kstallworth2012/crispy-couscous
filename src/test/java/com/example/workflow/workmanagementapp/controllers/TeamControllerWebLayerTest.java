@@ -10,7 +10,9 @@ import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import com.example.workflow.workmanagementapp.domain.entities.TeamsEntity;
 import com.example.workflow.workmanagementapp.services.TeamService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @WebMvcTest(controllers = TeamsController.class)
@@ -25,8 +27,13 @@ public class TeamControllerWebLayerTest {
 	
 	@Test
     @DisplayName("Create Team")
-    void testCreate() {
+    void testCreate() throws JsonProcessingException {
 		//Arrange 
+		
+		TeamsEntity testTeams = new TeamsEntity();
+		testTeams.setTeam_name("Test Team One");
+		
+		
 		MockMvcRequestBuilders.post("/teams")
 					.contentType(MediaType.APPLICATION_JSON)
 					.accept(MediaType.APPLICATION_JSON)
