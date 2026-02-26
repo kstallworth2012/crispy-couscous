@@ -101,7 +101,7 @@ public class SchedulesController {
 	
 	
 	
-	@PatchMapping(path ="{/id}")
+	@PatchMapping(path ="/{id}")
 	public ResponseEntity<SchedulesDTO> partialUpdate(@PathVariable("id") UUID id, @RequestBody SchedulesDTO _scheduleDTO){
 		
 		if(!_scheduleService.isExists(id)) {

@@ -64,9 +64,9 @@ public class ProjectServiceImpl implements ProjectService {
 	@Override
 	public ProjectsEntity partialUpdate(UUID _id, ProjectsEntity _project) {
 		// TODO Auto-generated method stub
-		   _project.setId(_id);
+		   _project.setProject_id(_id);
 	       return projectsRepository.findById(_id).map(existingProject -> {
-	            Optional.ofNullable(_project.getTitle()).ifPresent(existingProject::setTitle);
+	            Optional.ofNullable(_project.getProject_name()).ifPresent(existingProject::setProject_name);
 	            return projectsRepository.save(existingProject);
 	        }).orElseThrow(() -> new RuntimeException("Project does not exist"));
 	}

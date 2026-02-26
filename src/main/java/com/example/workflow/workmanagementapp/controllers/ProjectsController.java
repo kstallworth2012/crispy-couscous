@@ -104,7 +104,7 @@ public class ProjectsController {
 	
 	
 	
-	@PatchMapping(path ="{/id}")
+	@PatchMapping(path ="/{id}")
 	public ResponseEntity<ProjectsDTO> partialUpdate(@PathVariable("id") UUID id, @RequestBody ProjectsDTO _projectDTO){
 		
 		if(!projectService.isExists(id)) {

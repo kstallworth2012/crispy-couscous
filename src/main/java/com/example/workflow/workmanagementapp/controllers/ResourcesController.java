@@ -81,7 +81,7 @@ public class ResourcesController {
 	
 	
 	
-	@PatchMapping(path ="{/id}")
+	@PatchMapping(path ="/{id}")
 	public ResponseEntity<ResourcesDTO> partialUpdate(@PathVariable("id") UUID id, @RequestBody ResourcesDTO appDto){
 		
 		if(!resourceService.isExists(id)) {

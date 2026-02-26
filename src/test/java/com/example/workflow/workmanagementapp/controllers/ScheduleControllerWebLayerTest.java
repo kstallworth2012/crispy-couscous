@@ -9,6 +9,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
+import org.springframework.test.context.bean.override.mockito.MockitoBeans;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.RequestBuilder;
@@ -18,11 +19,13 @@ import com.example.workflow.workmanagementapp.domain.dto.ResourcesDTO;
 import com.example.workflow.workmanagementapp.domain.dto.SchedulesDTO;
 import com.example.workflow.workmanagementapp.domain.entities.SchedulesEntity;
 import com.example.workflow.workmanagementapp.services.ScheduleService;
+import com.example.workflow.workmanagementapp.services.impl.ScheduleServiceImpl;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @WebMvcTest(controllers = SchedulesController.class)
 @AutoConfigureMockMvc(addFilters = false)
+//@MockitoBean(ScheduleServiceImpl.class)
 public class ScheduleControllerWebLayerTest {
 	
 	@Autowired

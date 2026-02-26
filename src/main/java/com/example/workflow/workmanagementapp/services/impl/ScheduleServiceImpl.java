@@ -64,10 +64,10 @@ public class ScheduleServiceImpl implements ScheduleService {
 	@Override
 	public SchedulesEntity partialUpdate(UUID _id, SchedulesEntity _schedules) {
 		// TODO Auto-generated method stub
-			_schedules.setId(_id);
+			_schedules.setSchedule_id(_id);;
 		
 	       return schedulesRepository.findById(_id).map(existingSchedules -> {
-	            Optional.ofNullable(_schedules.getTitle()).ifPresent(existingSchedules::setTitle);
+	            Optional.ofNullable(_schedules.getProject_id()).ifPresent(existingSchedules::setProject_id);
 	            return schedulesRepository.save(existingSchedules);
 	        }).orElseThrow(() -> new RuntimeException("Schedule does not exist"));
 	}

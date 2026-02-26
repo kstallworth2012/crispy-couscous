@@ -65,9 +65,9 @@ public class TeamServiceImpl implements TeamService {
 	@Override
 	public TeamsEntity partialUpdate(UUID _id, TeamsEntity _team) {
 		// TODO Auto-generated method stub
-		//_team.
+		_team.setTeam_id(_id);
 	       return teamsRepository.findById(_id).map(existingTeam -> {
-	            Optional.ofNullable(_team.getTitle()).ifPresent(existingTeam::setTitle);
+	            Optional.ofNullable(_team.getTeam_name()).ifPresent(existingTeam::setTeam_name);
 	            return teamsRepository.save(existingTeam);
 	        }).orElseThrow(() -> new RuntimeException("Team does not exist"));
 	}

@@ -102,7 +102,7 @@ public class ActivitiesController {
 	
 	
 	
-	@PatchMapping(path ="{/id}")
+	@PatchMapping(path ="/{id}")
 	public ResponseEntity<ActivitiesDTO> partialUpdate(@PathVariable("id") UUID id, @RequestBody ActivitiesDTO appDto){
 		
 		if(!activitiesService.isExists(id)) {

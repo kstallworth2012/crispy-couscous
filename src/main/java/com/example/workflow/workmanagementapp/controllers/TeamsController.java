@@ -102,7 +102,7 @@ public class TeamsController {
 	
 	
 	
-	@PatchMapping(path ="{/id}")
+	@PatchMapping(path ="/{id}")
 	public ResponseEntity<TeamsDTO> partialUpdate(@PathVariable("id") UUID id, @RequestBody TeamsDTO _teamDTO){
 		
 		if(!teamService.isExists(id)) {

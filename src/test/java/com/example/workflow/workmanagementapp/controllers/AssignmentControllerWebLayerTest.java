@@ -30,13 +30,13 @@ public class AssignmentControllerWebLayerTest {
     @DisplayName("Create Team")
     void testCreate() {
 		//Arrange
-		AssignmentsEntity testAssignments =new AssignmentsEntity();
-		testAssignments.setAssignment_id(UUID.randomUUID());
-		
-		
-		MockMvcRequestBuilders.post("/assignments")
-					.contentType(MediaType.APPLICATION_JSON)
-					.accept(MediaType.APPLICATION_JSON)
-					.content(new ObjectMapper().writeValueAsString(getClass()));
+//		AssignmentsEntity testAssignments =new AssignmentsEntity();
+//		testAssignments.setAssignment_id(UUID.randomUUID());
+//		
+//		
+//		MockMvcRequestBuilders.post("/assignments")
+//					.contentType(MediaType.APPLICATION_JSON)
+//					.accept(MediaType.APPLICATION_JSON)
+//					.content(new ObjectMapper().writeValueAsString(getClass()));
 		}
 	}

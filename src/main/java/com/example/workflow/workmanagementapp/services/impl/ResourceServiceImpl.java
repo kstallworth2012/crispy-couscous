@@ -60,9 +60,9 @@ public class ResourceServiceImpl implements ResourceService {
 	@Override
 	public ResourcesEntity partialEntity(UUID _id, ResourcesEntity _resource) {
 		// TODO Auto-generated method stub
-		_resource.setId(_id);
+		_resource.setResource_id(_id);
 	       return resourcesRepository.findById(_id).map(existingResource -> {
-	            Optional.ofNullable(_resource.getTitle()).ifPresent(existingResource::setTitle);
+	            Optional.ofNullable(_resource.getResource_name()).ifPresent(existingResource::setResource_name);
 	            return resourcesRepository.save(existingResource);
 	        }).orElseThrow(() -> new RuntimeException("Resource does not exist"));
 	}

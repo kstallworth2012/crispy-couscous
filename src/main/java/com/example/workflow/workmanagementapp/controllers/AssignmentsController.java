@@ -107,7 +107,7 @@ public class AssignmentsController {
 	
 	
 	
-	@PatchMapping(path ="{/id}")
+	@PatchMapping(path ="/{id}")
 	public ResponseEntity<AssignmentsDTO> partialUpdate(@PathVariable("id") UUID id, @RequestBody AssignmentsDTO appDto){
 		
 		if(!assignmentService.isExists(id)) {

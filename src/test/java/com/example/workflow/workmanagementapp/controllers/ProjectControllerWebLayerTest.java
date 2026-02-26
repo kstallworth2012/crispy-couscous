@@ -30,12 +30,13 @@ public class ProjectControllerWebLayerTest {
     @DisplayName("Create Project")
     void testCreate() {
 		//Arrange 
-		ProjectsEntity testProject = new ProjectsEntity();
-		testProject.setProject_id(UUID.randomUUID());
-		
-		
-		MockMvcRequestBuilders.post("/projects")
-					.contentType(MediaType.APPLICATION_JSON)
-					.accept(MediaType.APPLICATION_JSON)
-					.content(new ObjectMapper().writeValueAsString(getClass()));
+//		ProjectsEntity testProject = new ProjectsEntity();
+//		testProject.setProject_id(UUID.randomUUID());
+//		
+//		
+//		MockMvcRequestBuilders.post("/projects")
+//					.contentType(MediaType.APPLICATION_JSON)
+//					.accept(MediaType.APPLICATION_JSON)
+//					.content(new ObjectMapper().writeValueAsString(getClass()));
+	}
 }

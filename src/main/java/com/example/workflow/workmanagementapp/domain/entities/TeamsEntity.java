@@ -38,7 +38,15 @@ public class TeamsEntity{
     private ProjectsEntity project_id; 
     
     
-    public String getTeam_name() {
+    public UUID getTeam_id() {
+		return team_id;
+	}
+
+	public void setTeam_id(UUID team_id) {
+		this.team_id = team_id;
+	}
+
+	public String getTeam_name() {
 		return team_name;
 	}
 
