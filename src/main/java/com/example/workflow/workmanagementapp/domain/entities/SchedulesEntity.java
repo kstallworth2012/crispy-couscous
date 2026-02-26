@@ -40,6 +40,36 @@ public class SchedulesEntity{
     private LocalDate actual_start;
     private LocalDate actual_end;
 
+	public ActivitiesEntity getActivity_id() {
+		return activity_id;
+	}
+	public void setActivity_id(ActivitiesEntity activity_id) {
+		this.activity_id = activity_id;
+	}
+	public LocalDate getBaseline_start() {
+		return baseline_start;
+	}
+	public void setBaseline_start(LocalDate baseline_start) {
+		this.baseline_start = baseline_start;
+	}
+	public LocalDate getBasesline_end() {
+		return basesline_end;
+	}
+	public void setBasesline_end(LocalDate basesline_end) {
+		this.basesline_end = basesline_end;
+	}
+	public LocalDate getActual_start() {
+		return actual_start;
+	}
+	public void setActual_start(LocalDate actual_start) {
+		this.actual_start = actual_start;
+	}
+	public LocalDate getActual_end() {
+		return actual_end;
+	}
+	public void setActual_end(LocalDate actual_end) {
+		this.actual_end = actual_end;
+	}
 	public UUID getSchedule_id() {
 		return schedule_id;
 	}
