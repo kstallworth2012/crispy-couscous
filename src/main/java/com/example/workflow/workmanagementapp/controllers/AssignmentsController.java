@@ -58,11 +58,11 @@ public class AssignmentsController {
 	     
 	     
 	     	//PAGEABLE
-	@GetMapping(path="/")
-	public Page<AssignmentsDTO> listAssignments(Pageable page){
-		Page<AssignmentsEntity> assignments = assignmentService.findAll(page);
-		return assignments.map(assignmentMapper::mapTo);
-	}
+//	@GetMapping(path="/")
+//	public Page<AssignmentsDTO> listAssignments(Pageable page){
+//		Page<AssignmentsEntity> assignments = assignmentService.findAll(page);
+//		return assignments.map(assignmentMapper::mapTo);
+//	}
 	   
 	     
 	     

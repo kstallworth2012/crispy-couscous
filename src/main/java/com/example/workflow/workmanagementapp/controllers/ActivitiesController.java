@@ -59,11 +59,11 @@ public class ActivitiesController {
 	     
 	     
 	     	//PAGEABLE
-	@GetMapping(path="/")
-	public Page<ActivitiesDTO> listActivities(Pageable page){
-		Page<ActivitiesEntity> activities = activitiesService.findAll(page);
-		return activities.map(activitiesMapper::mapTo);
-	}
+//	@GetMapping(path="/")
+//	public Page<ActivitiesDTO> listActivities(Pageable page){
+//		Page<ActivitiesEntity> activities = activitiesService.findAll(page);
+//		return activities.map(activitiesMapper::mapTo);
+//	}
 	   
 	     
 	     

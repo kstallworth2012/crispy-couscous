@@ -75,7 +75,7 @@ CREATE TABLE Teams (
 -- Sample data
 INSERT INTO Teams VALUES
 (1, 'Electrical Team', 'Jane Doe', 1),
-(2, 'IT Inf
+(2, 'IT Inference Team, 'Bob Holis',2)
 
 */
 

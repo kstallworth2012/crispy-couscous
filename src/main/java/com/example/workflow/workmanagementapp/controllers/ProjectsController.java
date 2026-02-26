@@ -61,12 +61,12 @@ public class ProjectsController {
 	     
 	     
 	     	//PAGEABLE
-	@GetMapping(path="/")
-	public Page<ProjectsDTO> listProjects(Pageable page){
-		Page<ProjectsEntity> projects = projectService.findAll(page);
-		return projects.map(projectMapper::mapTo);
-	}
-	   
+//	@GetMapping(path="/")
+//	public Page<ProjectsDTO> listProjects(Pageable page){
+//		Page<ProjectsEntity> projects = projectService.findAll(page);
+//		return projects.map(projectMapper::mapTo);
+//	}
+//	   
 	     
 	     
 	     

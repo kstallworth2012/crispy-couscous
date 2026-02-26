@@ -59,11 +59,11 @@ public class TeamsController {
 	     
 	    
 	 //PAGEABLE
-	@GetMapping(path="/")
-	public Page<TeamsDTO> listTeams(Pageable page){
-		Page<TeamsEntity> teams = teamService.findAll(page);
-		return teams.map(teamMapper::mapTo);
-	}
+//	@GetMapping(path="/")
+//	public Page<TeamsDTO> listTeams(Pageable page){
+//		Page<TeamsEntity> teams = teamService.findAll(page);
+//		return teams.map(teamMapper::mapTo);
+//	}
 	   
 	     
 	     

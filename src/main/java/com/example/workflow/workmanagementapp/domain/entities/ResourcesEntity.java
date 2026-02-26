@@ -26,6 +26,7 @@ import java.util.UUID;
 @Table(name = "Resources")
 public class ResourcesEntity{
 	@Id
+	//@Column(name = "id", columnDefinition = "UUID")
 	private UUID resource_id;
 	private String resource_name;
 	private String resource_type; 
@@ -79,7 +80,7 @@ CREATE TABLE Resources (
 -- Sample data
 INSERT INTO Resources VALUES
 (1, 'John Smith', 'Labor', '100%', 200),
-(2, 'Excavator',
+(2, 'Excavator','Labor','90%',900)
 */
 
 }

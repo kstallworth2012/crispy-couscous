@@ -46,7 +46,7 @@ public class ActivitiesEntity{
     private LocalDate end_date;
     private String status;
     private Integer total_float;
-    private Double percent_complete;
+    private String percent_complete;
     
     
     

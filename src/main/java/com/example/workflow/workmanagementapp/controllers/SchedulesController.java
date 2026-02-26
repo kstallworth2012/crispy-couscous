@@ -60,11 +60,11 @@ public class SchedulesController {
 	     
 	     
 	     	//PAGEABLE
-	@GetMapping(path="/")
-	public Page<SchedulesDTO> listSchedules(Pageable page){
-		Page<SchedulesEntity> schedules = _scheduleService.findAll(page);
-		return schedules.map(scheduleMapper::mapTo);
-	}
+//	@GetMapping(path="/")
+//	public Page<SchedulesDTO> listSchedules(Pageable page){
+//		Page<SchedulesEntity> schedules = _scheduleService.findAll(page);
+//		return schedules.map(scheduleMapper::mapTo);
+//	}
 	   
 	     
 	     

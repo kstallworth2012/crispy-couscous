@@ -101,11 +101,11 @@ public class ResourcesController {
     
 	     
 	     	//PAGEABLE
-	@GetMapping(path="/")
-	public Page<ResourcesDTO> listResources(Pageable page){
-		Page<ResourcesEntity> resources = resourceService.findAll(page);
-		return resources.map(resourceMapper::mapTo);
-	}
+//	@GetMapping(path="/")
+//	public Page<ResourcesDTO> listResources(Pageable page){
+//		Page<ResourcesEntity> resources = resourceService.findAll(page);
+//		return resources.map(resourceMapper::mapTo);
+//	}
 	   
 	     
 	     
