@@ -1,6 +1,7 @@
 package com.example.workflow.workmanagementapp.mappers.impl;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.example.workflow.workmanagementapp.domain.dto.ActivitiesDTO;
@@ -16,7 +17,7 @@ public class AssignmentsMapperImpl implements Mapper<AssignmentsEntity, Assignme
 	
 	private ModelMapper modelMapper;
 	
-	
+	@Autowired
 	public AssignmentsMapperImpl(ModelMapper modelMapper) {
 		this.modelMapper = modelMapper;
 	}
