@@ -46,7 +46,9 @@ CREATE TABLE Resources (
 
 INSERT INTO Resources VALUES
 ('ba84b149-4428-4c24-8f6e-8f6f309ae0b2', 'John Smith', 'Labor', '100%', 200.00),
-('01f08236-74b0-40a5-8758-343cfae57e0f', 'Excavator','Labor','90%',900.00);
+('01f08236-74b0-40a5-8758-343cfae57e0f', 'Excavator','Labor','90%',900.00),
+('1729a961-cbf1-48fa-bf2a-9b228e905430','Excavator2','Labor','70%',1900.00),
+('51e7a966-ed9e-40fe-8bac-4ea5ec7fbe02','Excavator3',' ',' ',1900.00);
 
 
 
